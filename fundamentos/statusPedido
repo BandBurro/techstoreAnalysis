@@ -1,0 +1,2 @@
+SELECT COUNT(status) AS pedidos_cancelados FROM pedidos
+WHERE status = 'Cancelado';

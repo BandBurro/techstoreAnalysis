@@ -1,0 +1,9 @@
+id_pedido,id_cliente,data_pedido,status
+1,1,2023-06-13,Entregue
+2,2,2023-06-15,Entregue
+3,3,2023-06-17,Cancelado
+4,1,2023-07-01,Entregue
+5,4,2023-07-05,Entregue
+6,5,2023-07-08,Entregue
+7,6,2023-07-11,Cancelado
+

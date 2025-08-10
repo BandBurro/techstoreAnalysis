@@ -1,0 +1,28 @@
+SELECT pedidos.id_pedido, clientes.nome, pedidos.data_pedido, pedidos.status
+FROM pedidos
+INNER JOIN clientes ON pedidos.id_cliente = clientes.id_cliente;
+SELECT clientes.nome, pedidos.id_pedido, pedidos.data_pedido
+FROM clientes
+LEFT JOIN pedidos ON clientes.id_cliente = pedidos.id_cliente;
+SELECT 
+    pedidos.id_pedido, 
+    clientes.nome AS cliente, 
+    produtos.nome_produto, 
+    itens_pedido.quantidade, 
+    itens_pedido.preco_unitario
+FROM itens_pedido
+INNER JOIN pedidos ON itens_pedido.id_pedido = pedidos.id_pedido
+INNER JOIN clientes ON pedidos.id_cliente = clientes.id_cliente
+INNER JOIN produtos ON itens_pedido.id_produto = produtos.id_produto;
+SELECT clientes.nome, pedidos.id_pedido, pedidos.data_pedido
+FROM pedidos
+INNER JOIN clientes ON pedidos.id_cliente = clientes.id_cliente
+ORDER BY clientes.nome, pedidos.data_pedido;
+SELECT produtos.nome_produto, SUM(itens_pedido.quantidade) AS total_vendido
+FROM itens_pedido
+INNER JOIN produtos ON itens_pedido.id_produto = produtos.id_produto
+GROUP BY produtos.nome_produto;
+SELECT produtos.nome_produto
+FROM produtos
+LEFT JOIN itens_pedido ON produtos.id_produto = itens_pedido.id_produto
+WHERE itens_pedido.id_produto IS NULL;

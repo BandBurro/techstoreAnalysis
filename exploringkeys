@@ -1,0 +1,30 @@
+CREATE TABLE clientes (
+    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+);
+CREATE TABLE pedidos (
+    id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY AUTO_INCREMENT,
+    dept_name VARCHAR(50)
+);
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_name VARCHAR(100),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+);
+INSERT INTO departments (dept_name) VALUES ('Sales'), ('IT'), ('HR');
+INSERT INTO employees (emp_name, dept_id) VALUES 
+('Ana', 1),
+('Carlos', 2),
+('Beatriz', 1),
+('João', 3);
+SELECT emp_name, dept_name
+FROM employees
+JOIN departments ON employees.dept_id = departments.dept_id;
+INSERT INTO employees (emp_name, dept_id) VALUES ('Lucas', 99);

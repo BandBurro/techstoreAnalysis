@@ -1,0 +1,19 @@
+SELECT id_cliente, COUNT(*) AS total_pedidos
+FROM pedidos
+GROUP BY id_cliente
+HAVING total_pedidos > 1;
+SELECT categoria,
+       MIN(preco) AS preco_min,
+       MAX(preco) AS preco_max,
+       AVG(preco) AS preco_medio,
+       SUM(preco) AS preco_total
+FROM produtos
+GROUP BY categoria;
+SELECT COUNT(*) AS total_pedidos FROM pedidos;
+SELECT COUNT(DISTINCT id_cliente) AS clientes_unicos FROM pedidos;
+SELECT DISTINCT cidade FROM clientes;
+SELECT DATE_FORMAT(data_pedido, '%Y-%m') AS mes,
+       COUNT(*) AS total_pedidos
+FROM pedidos
+GROUP BY mes
+ORDER BY mes;

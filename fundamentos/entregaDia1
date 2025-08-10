@@ -1,0 +1,15 @@
+SELECT * FROM pedidos
+ORDER BY data_pedido DESC
+LIMIT 10; -- query numero 3
+SELECT COUNT(id_cliente) AS total_clientes FROM clientes; -- query numero 1
+SELECT preco, nome_produto FROM produtos
+ORDER BY preco DESC
+LIMIT 5; -- query numero 2
+SELECT categoria, AVG(preco) AS preco_medio, COUNT(*) AS quantidade
+FROM produtos
+WHERE categoria = 'Acessórios'
+GROUP BY categoria
+ORDER BY preco_medio; -- query numero 5
+SELECT * FROM produtos;
+SELECT COUNT(status) AS pedidos_cancelados FROM pedidos
+WHERE status = 'Cancelado'; -- query numero 4

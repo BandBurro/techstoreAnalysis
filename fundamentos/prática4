@@ -1,0 +1,6 @@
+SELECT COUNT(*) AS total_clientes FROM clientes;
+SELECT * FROM clientes;
+SELECT AVG(preco) AS preco_medio FROM produtos;
+SELECT preco FROM produtos;
+SELECT SUM(quantidade * preco_unitario) AS receita_total FROM itens_pedido;
+SELECT * FROM itens_pedido;

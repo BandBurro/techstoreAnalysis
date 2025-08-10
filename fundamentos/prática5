@@ -1,0 +1,10 @@
+SELECT id_cliente, COUNT(*) AS total_pedidos
+FROM pedidos
+GROUP BY id_cliente;
+SELECT id_produto, SUM(quantidade * preco_unitario) AS receita_total
+FROM itens_pedido
+GROUP BY id_produto
+ORDER BY receita_total DESC;
+SELECT categoria, COUNT(*) AS quantidade_produtos
+FROM produtos
+GROUP BY categoria;

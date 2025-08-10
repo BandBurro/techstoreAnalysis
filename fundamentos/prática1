@@ -1,0 +1,4 @@
+SELECT * FROM clientes LIMIT 5; -- seleciona coluna de uma tabela
+SELECT * FROM produtos; -- seleciona coluna de outra tabela
+SELECT * FROM pedidos; -- seleciona coluna de mais uma tabela
+SELECT * FROM itens_pedido LIMIT 5; -- seleciona coluna de mais uma tabela

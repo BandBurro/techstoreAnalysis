@@ -1,0 +1,7 @@
+SELECT * FROM produtos
+WHERE categoria = 'Smartphones';
+SELECT * FROM produtos
+ORDER BY preco DESC;
+SELECT * FROM produtos
+WHERE categoria = 'Acessórios'
+ORDER BY preco ASC;

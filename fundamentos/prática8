@@ -1,0 +1,13 @@
+SELECT DISTINCT cidade FROM clientes;
+SELECT COUNT(DISTINCT id_produto) AS produtos_vendidos
+FROM itens_pedido;
+SELECT DATE_FORMAT(data_pedido, '%Y-%m') AS mes,
+       COUNT(*) AS total_pedidos
+FROM pedidos
+GROUP BY mes
+ORDER BY mes;
+SELECT DATE_FORMAT(data_pedido, '%Y-%m') AS mes,
+       COUNT(DISTINCT id_cliente) AS clientes_ativos
+FROM pedidos
+GROUP BY mes
+ORDER BY mes;

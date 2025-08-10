@@ -1,0 +1,5 @@
+SELECT id_cliente, nome FROM clientes
+WHERE estado = 'SC';
+SELECT * FROM pedidos
+WHERE status = 'Cancelado'
+ORDER BY data_pedido DESC;

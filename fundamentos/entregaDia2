@@ -1,0 +1,37 @@
+SELECT 
+    clientes.id_cliente,
+    clientes.nome,
+    SUM(itens_pedido.quantidade * itens_pedido.preco_unitario) AS total_gasto
+FROM pedidos
+INNER JOIN clientes ON pedidos.id_cliente = clientes.id_cliente
+INNER JOIN itens_pedido ON pedidos.id_pedido = itens_pedido.id_pedido
+WHERE pedidos.status = 'Entregue'
+GROUP BY clientes.id_cliente, clientes.nome
+ORDER BY total_gasto DESC; -- query numero 1
+SELECT 
+    produtos.categoria,
+    SUM(itens_pedido.quantidade * itens_pedido.preco_unitario) AS receita_total
+FROM itens_pedido
+INNER JOIN produtos ON itens_pedido.id_produto = produtos.id_produto
+INNER JOIN pedidos ON itens_pedido.id_pedido = pedidos.id_pedido
+WHERE pedidos.status = 'Entregue'
+GROUP BY produtos.categoria
+ORDER BY receita_total DESC; -- query numero 2
+SELECT 
+    clientes.id_cliente, 
+    clientes.nome, 
+    COUNT(pedidos.id_pedido) AS total_pedidos
+FROM clientes
+INNER JOIN pedidos ON clientes.id_cliente = pedidos.id_cliente
+GROUP BY clientes.id_cliente, clientes.nome
+HAVING total_pedidos > 2; -- query numero 3
+SELECT produtos.id_produto, produtos.nome_produto
+FROM produtos
+LEFT JOIN itens_pedido ON produtos.id_produto = itens_pedido.id_produto
+WHERE itens_pedido.id_produto IS NULL; -- query numero 4
+SELECT 
+    estado, 
+    COUNT(*) AS total_clientes
+FROM clientes
+GROUP BY estado
+ORDER BY total_clientes DESC; -- query numero 5

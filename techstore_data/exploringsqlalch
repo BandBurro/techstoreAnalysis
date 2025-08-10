@@ -1,0 +1,24 @@
+import pandas as pd
+from sqlalchemy import create_engine
+
+user = 'root'        # replace with your DB user
+password = '4409'    # replace with your DB password
+host = 'localhost'   # or your DB host
+db = 'techstore'     # your database name
+
+# Create SQLAlchemy engine
+engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}")
+
+# Load your CSVs (as you already did)
+clientes = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/clientes.csv')
+produtos = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/produtos.csv')
+pedidos = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/pedidos.csv')
+itens_pedido = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/item_pedido.csv')
+
+# Write each DataFrame to its table
+clientes.to_sql('clientes', con=engine, if_exists='append', index=False)
+produtos.to_sql('produtos', con=engine, if_exists='append', index=False)
+pedidos.to_sql('pedidos', con=engine, if_exists='append', index=False)
+itens_pedido.to_sql('itens_pedido', con=engine, if_exists='append', index=False)
+
+print("All tables loaded successfully!")

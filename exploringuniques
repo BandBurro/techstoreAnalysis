@@ -1,0 +1,22 @@
+CREATE TABLE test_users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    email VARCHAR(100) UNIQUE
+);
+INSERT INTO test_users (username, email) VALUES ('ana', 'ana@email.com');
+INSERT INTO test_users (username, email) VALUES ('carlos', 'carlos@email.com');
+INSERT INTO test_users (username, email) VALUES ('ana', 'ana2@email.com');
+INSERT INTO test_users (username, email) VALUES ('beatriz', 'ana@email.com');
+INSERT INTO test_users (username, email) VALUES ('joao', NULL);
+INSERT INTO test_users (username, email) VALUES ('lucas', NULL);
+DROP TABLE test_users;
+
+CREATE TABLE test_users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    UNIQUE (first_name, last_name)
+);
+INSERT INTO test_users (first_name, last_name) VALUES ('Ana', 'Silva');
+INSERT INTO test_users (first_name, last_name) VALUES ('Ana', 'Silva');  -- Should fail!
+INSERT INTO test_users (first_name, last_name) VALUES ('Ana', 'Souza');  -- Should work

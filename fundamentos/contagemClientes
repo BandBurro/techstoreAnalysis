@@ -1,0 +1,1 @@
+SELECT COUNT(id_cliente) AS total_clientes FROM clientes; -- conta o total de clientes

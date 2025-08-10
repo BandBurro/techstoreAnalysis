@@ -1,0 +1,6 @@
+SELECT categoria, AVG(preco) AS preco_medio, COUNT(*) AS quantidade
+FROM produtos
+WHERE categoria = 'Acessórios'
+GROUP BY categoria
+ORDER BY preco_medio;
+SELECT * FROM produtos;

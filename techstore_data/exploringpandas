@@ -1,0 +1,12 @@
+import pandas as pd
+# Load CSVs
+clientes = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/clientes.csv')
+produtos = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/produtos.csv')
+pedidos = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/pedidos.csv')
+itens_pedido = pd.read_csv('/home/notetias/Projects/Consultoria Dados/SQL/techstore Project/techstore_data/item_pedido.csv')
+
+# Show a preview of each
+print('Clientes:\n', clientes.head(), '\n')
+print('Produtos:\n', produtos.head(), '\n')
+print('Pedidos:\n', pedidos.head(), '\n')
+print('Itens Pedido:\n', itens_pedido.head(), '\n')
